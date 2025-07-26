@@ -8,69 +8,71 @@
 
 @layer base {
   :root {
-    /* Material 3 Color Tokens - Light Theme */
-    --background: 251 248 255;
-    --foreground: 28 27 31;
-    --surface: 251 248 255;
-    --surface-variant: 231 224 236;
-    --surface-container: 247 243 250;
-    --surface-container-high: 236 230 240;
-    --surface-container-highest: 225 220 229;
+    /* Google Wallet Color Palette - Light Theme */
+    --background: 210 17% 95%;           /* #F1F3F4 - Gray 50 */
+    --foreground: 225 6% 13%;            /* #202124 - Almost black */
+    --surface: 210 17% 95%;              /* #F1F3F4 - Gray 50 */
+    --surface-variant: 210 17% 95%;
+    --surface-container: 0 0% 100%;      /* #FFFFFF - White */
+    --surface-container-high: 0 0% 100%;
+    --surface-container-highest: 0 0% 100%;
 
-    --card: 251 248 255;
-    --card-foreground: 28 27 31;
+    --card: 0 0% 100%;                   /* #FFFFFF - White */
+    --card-foreground: 225 6% 13%;       /* #202124 - Almost black */
 
-    --popover: 251 248 255;
-    --popover-foreground: 28 27 31;
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 6% 13%;
 
-    /* Google Blue palette for primary */
-    --primary: 26 115 232;
-    --primary-container: 210 227 252;
-    --primary-foreground: 255 255 255;
-    --on-primary-container: 1 87 155;
+    /* Google Wallet Primary - Blue 600 */
+    --primary: 217 89% 51%;              /* #1A73E8 - Google Blue */
+    --primary-container: 217 89% 94%;
+    --primary-foreground: 0 0% 100%;
+    --on-primary-container: 217 89% 25%;
 
-    --secondary: 98 91 113;
-    --secondary-container: 230 221 255;
-    --secondary-foreground: 255 255 255;
-    --on-secondary-container: 50 47 66;
+    /* Google Wallet Secondary - Green 600 */
+    --secondary: 137 50% 43%;            /* #34A853 - Google Green */
+    --secondary-container: 137 50% 90%;
+    --secondary-foreground: 0 0% 100%;
+    --on-secondary-container: 137 50% 20%;
 
-    --tertiary: 125 82 96;
-    --tertiary-container: 255 216 228;
-    --tertiary-foreground: 255 255 255;
+    /* Google Wallet Accent - Yellow */
+    --tertiary: 45 96% 50%;              /* #FBBC05 - Google Yellow */
+    --tertiary-container: 45 96% 90%;
+    --tertiary-foreground: 225 6% 13%;
 
-    --success: 46 160 67;
-    --success-container: 204 232 207;
-    --success-foreground: 255 255 255;
+    --success: 137 50% 43%;              /* #34A853 - Google Green */
+    --success-container: 137 50% 90%;
+    --success-foreground: 0 0% 100%;
 
-    --warning: 245 124 0;
-    --warning-container: 255 220 178;
-    --warning-foreground: 255 255 255;
+    --warning: 45 96% 50%;               /* #FBBC05 - Google Yellow */
+    --warning-container: 45 96% 90%;
+    --warning-foreground: 225 6% 13%;
 
-    --error: 179 38 30;
-    --error-container: 249 222 220;
-    --error-foreground: 255 255 255;
+    --error: 4 90% 58%;                  /* Google Red */
+    --error-container: 4 90% 90%;
+    --error-foreground: 0 0% 100%;
 
-    --muted: 103 80 164;
-    --muted-foreground: 121 116 126;
+    --muted: 210 17% 95%;
+    --muted-foreground: 211 10% 39%;     /* #5F6368 - Gray 700 */
 
-    --accent: 103 80 164;
-    --accent-foreground: 255 255 255;
+    --accent: 45 96% 50%;                /* #FBBC05 - Google Yellow */
+    --accent-foreground: 225 6% 13%;
 
-    --destructive: 179 38 30;
-    --destructive-foreground: 255 255 255;
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 202 196 208;
-    --input: 202 196 208;
-    --ring: 26 115 232;
+    --border: 210 17% 90%;
+    --input: 210 17% 90%;
+    --ring: 217 89% 51%;                 /* #1A73E8 - Google Blue */
 
-    --outline: 121 116 126;
-    --outline-variant: 202 196 208;
+    --outline: 211 10% 39%;              /* #5F6368 - Gray 700 */
+    --outline-variant: 210 17% 90%;
 
     /* Google Wallet specific colors */
-    --wallet-blue: 66 133 244;
-    --wallet-green: 52 168 83;
-    --wallet-yellow: 251 188 5;
-    --wallet-red: 234 67 53;
+    --wallet-blue: 217 89% 51%;          /* #1A73E8 - Google Blue */
+    --wallet-green: 137 50% 43%;         /* #34A853 - Google Green */
+    --wallet-yellow: 45 96% 50%;         /* #FBBC05 - Google Yellow */
+    --wallet-red: 4 90% 58%;             /* Google Red */
 
     /* Elevation and shadows */
     --elevation-1: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
@@ -91,13 +93,13 @@
     --space-5xl: 48px;
     --space-6xl: 64px;
 
-    /* Material 3 radius scale */
+    /* Material 3 radius scale - Google Wallet style */
     --radius-xs: 4px;
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 28px;
-    --radius: var(--radius-md);
+    --radius: var(--radius-lg);          /* Google Wallet uses 16px radius */
 
     /* Typography scale */
     --font-google-sans: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -142,69 +144,71 @@
   }
 
   .dark {
-    /* Material 3 Color Tokens - Dark Theme */
-    --background: 16 16 20;
-    --foreground: 230 225 229;
-    --surface: 16 16 20;
-    --surface-variant: 73 69 79;
-    --surface-container: 29 27 32;
-    --surface-container-high: 37 35 42;
-    --surface-container-highest: 46 44 51;
+    /* Google Wallet Color Palette - Dark Theme */
+    --background: 225 6% 13%;            /* #202124 - Dark mode surface */
+    --foreground: 210 11% 91%;           /* #E8EAED - Dark mode text */
+    --surface: 225 6% 13%;               /* #202124 - Dark mode surface */
+    --surface-variant: 225 6% 20%;
+    --surface-container: 225 6% 16%;
+    --surface-container-high: 225 6% 18%;
+    --surface-container-highest: 225 6% 22%;
 
-    --card: 16 16 20;
-    --card-foreground: 230 225 229;
+    --card: 225 6% 16%;                  /* Slightly lighter than background */
+    --card-foreground: 210 11% 91%;      /* #E8EAED - Dark mode text */
 
-    --popover: 16 16 20;
-    --popover-foreground: 230 225 229;
+    --popover: 225 6% 16%;
+    --popover-foreground: 210 11% 91%;
 
-    /* Google Blue palette for primary - dark theme */
-    --primary: 138 180 248;
-    --primary-container: 8 66 152;
-    --primary-foreground: 16 16 20;
-    --on-primary-container: 210 227 252;
+    /* Google Wallet Primary - Blue (lighter for dark theme) */
+    --primary: 217 89% 70%;              /* Lighter blue for dark theme */
+    --primary-container: 217 89% 25%;
+    --primary-foreground: 225 6% 13%;
+    --on-primary-container: 217 89% 85%;
 
-    --secondary: 202 196 208;
-    --secondary-container: 74 68 88;
-    --secondary-foreground: 16 16 20;
-    --on-secondary-container: 230 221 255;
+    /* Google Wallet Secondary - Green (lighter for dark theme) */
+    --secondary: 137 50% 60%;            /* Lighter green for dark theme */
+    --secondary-container: 137 50% 25%;
+    --secondary-foreground: 225 6% 13%;
+    --on-secondary-container: 137 50% 80%;
 
-    --tertiary: 225 187 199;
-    --tertiary-container: 99 59 72;
-    --tertiary-foreground: 16 16 20;
+    /* Google Wallet Accent - Yellow (adjusted for dark theme) */
+    --tertiary: 45 96% 65%;              /* Slightly muted yellow for dark theme */
+    --tertiary-container: 45 96% 25%;
+    --tertiary-foreground: 225 6% 13%;
 
-    --success: 129 201 149;
-    --success-container: 5 105 28;
-    --success-foreground: 16 16 20;
+    --success: 137 50% 60%;              /* Lighter green for dark theme */
+    --success-container: 137 50% 25%;
+    --success-foreground: 225 6% 13%;
 
-    --warning: 255 179 102;
-    --warning-container: 192 78 0;
-    --warning-foreground: 16 16 20;
+    --warning: 45 96% 65%;               /* Muted yellow for dark theme */
+    --warning-container: 45 96% 25%;
+    --warning-foreground: 225 6% 13%;
 
-    --error: 242 184 181;
-    --error-container: 140 29 24;
-    --error-foreground: 16 16 20;
+    --error: 4 90% 70%;                  /* Lighter red for dark theme */
+    --error-container: 4 90% 25%;
+    --error-foreground: 225 6% 13%;
 
-    --muted: 202 196 208;
-    --muted-foreground: 147 143 153;
+    --muted: 225 6% 20%;
+    --muted-foreground: 210 11% 71%;     /* Lighter gray for secondary text */
 
-    --accent: 202 196 208;
-    --accent-foreground: 16 16 20;
+    --accent: 45 96% 65%;                /* Muted yellow for dark theme */
+    --accent-foreground: 225 6% 13%;
 
-    --destructive: 242 184 181;
-    --destructive-foreground: 16 16 20;
+    --destructive: 4 90% 70%;
+    --destructive-foreground: 225 6% 13%;
 
-    --border: 73 69 79;
-    --input: 73 69 79;
-    --ring: 138 180 248;
+    --border: 225 6% 25%;
+    --input: 225 6% 25%;
+    --ring: 217 89% 70%;                 /* Lighter blue for dark theme */
 
-    --outline: 147 143 153;
-    --outline-variant: 73 69 79;
+    --outline: 210 11% 71%;              /* Lighter gray for secondary text */
+    --outline-variant: 225 6% 25%;
 
     /* Google Wallet specific colors - dark theme */
-    --wallet-blue: 138 180 248;
-    --wallet-green: 129 201 149;
-    --wallet-yellow: 255 193 7;
-    --wallet-red: 242 184 181;
+    --wallet-blue: 217 89% 70%;          /* Lighter blue for dark theme */
+    --wallet-green: 137 50% 60%;         /* Lighter green for dark theme */
+    --wallet-yellow: 45 96% 65%;         /* Muted yellow for dark theme */
+    --wallet-red: 4 90% 70%;             /* Lighter red for dark theme */
 
     --sidebar-background: 16 16 20;
     --sidebar-foreground: 230 225 229;
