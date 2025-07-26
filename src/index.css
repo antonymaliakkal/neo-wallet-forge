@@ -2,41 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* NeoSpan Design System - Material 3 inspired with Google Wallet aesthetics */
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Material 3 Color Tokens - Light Theme */
+    --background: 251 248 255;
+    --foreground: 28 27 31;
+    --surface: 251 248 255;
+    --surface-variant: 231 224 236;
+    --surface-container: 247 243 250;
+    --surface-container-high: 236 230 240;
+    --surface-container-highest: 225 220 229;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 251 248 255;
+    --card-foreground: 28 27 31;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 251 248 255;
+    --popover-foreground: 28 27 31;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Google Blue palette for primary */
+    --primary: 26 115 232;
+    --primary-container: 210 227 252;
+    --primary-foreground: 255 255 255;
+    --on-primary-container: 1 87 155;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 98 91 113;
+    --secondary-container: 230 221 255;
+    --secondary-foreground: 255 255 255;
+    --on-secondary-container: 50 47 66;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --tertiary: 125 82 96;
+    --tertiary-container: 255 216 228;
+    --tertiary-foreground: 255 255 255;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --success: 46 160 67;
+    --success-container: 204 232 207;
+    --success-foreground: 255 255 255;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --warning: 245 124 0;
+    --warning-container: 255 220 178;
+    --warning-foreground: 255 255 255;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --error: 179 38 30;
+    --error-container: 249 222 220;
+    --error-foreground: 255 255 255;
 
-    --radius: 0.5rem;
+    --muted: 103 80 164;
+    --muted-foreground: 121 116 126;
+
+    --accent: 103 80 164;
+    --accent-foreground: 255 255 255;
+
+    --destructive: 179 38 30;
+    --destructive-foreground: 255 255 255;
+
+    --border: 202 196 208;
+    --input: 202 196 208;
+    --ring: 26 115 232;
+
+    --outline: 121 116 126;
+    --outline-variant: 202 196 208;
+
+    /* Google Wallet specific colors */
+    --wallet-blue: 66 133 244;
+    --wallet-green: 52 168 83;
+    --wallet-yellow: 251 188 5;
+    --wallet-red: 234 67 53;
+
+    /* Elevation and shadows */
+    --elevation-1: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    --elevation-2: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+    --elevation-3: 0 4px 8px 3px rgba(60, 64, 67, 0.15), 0 1px 3px rgba(60, 64, 67, 0.3);
+    --elevation-4: 0 6px 10px 4px rgba(60, 64, 67, 0.15), 0 2px 3px rgba(60, 64, 67, 0.3);
+    --elevation-5: 0 8px 12px 6px rgba(60, 64, 67, 0.15), 0 4px 4px rgba(60, 64, 67, 0.3);
+
+    /* Material 3 spacing scale */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 20px;
+    --space-2xl: 24px;
+    --space-3xl: 32px;
+    --space-4xl: 40px;
+    --space-5xl: 48px;
+    --space-6xl: 64px;
+
+    /* Material 3 radius scale */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 28px;
+    --radius: var(--radius-md);
+
+    /* Typography scale */
+    --font-google-sans: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-roboto: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Animation tokens */
+    --duration-short-1: 50ms;
+    --duration-short-2: 100ms;
+    --duration-short-3: 150ms;
+    --duration-short-4: 200ms;
+    --duration-medium-1: 250ms;
+    --duration-medium-2: 300ms;
+    --duration-medium-3: 350ms;
+    --duration-medium-4: 400ms;
+    --duration-long-1: 450ms;
+    --duration-long-2: 500ms;
+    --duration-long-3: 550ms;
+    --duration-long-4: 600ms;
+
+    --easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
+    --easing-standard-decelerate: cubic-bezier(0.0, 0.0, 0, 1.0);
+    --easing-standard-accelerate: cubic-bezier(0.3, 0.0, 1.0, 1.0);
+    --easing-emphasized: cubic-bezier(0.2, 0.0, 0, 1.0);
+    --easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1.0);
+    --easing-emphasized-accelerate: cubic-bezier(0.3, 0.0, 0.8, 0.15);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +142,78 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Material 3 Color Tokens - Dark Theme */
+    --background: 16 16 20;
+    --foreground: 230 225 229;
+    --surface: 16 16 20;
+    --surface-variant: 73 69 79;
+    --surface-container: 29 27 32;
+    --surface-container-high: 37 35 42;
+    --surface-container-highest: 46 44 51;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 16 16 20;
+    --card-foreground: 230 225 229;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 16 16 20;
+    --popover-foreground: 230 225 229;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Google Blue palette for primary - dark theme */
+    --primary: 138 180 248;
+    --primary-container: 8 66 152;
+    --primary-foreground: 16 16 20;
+    --on-primary-container: 210 227 252;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 202 196 208;
+    --secondary-container: 74 68 88;
+    --secondary-foreground: 16 16 20;
+    --on-secondary-container: 230 221 255;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --tertiary: 225 187 199;
+    --tertiary-container: 99 59 72;
+    --tertiary-foreground: 16 16 20;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --success: 129 201 149;
+    --success-container: 5 105 28;
+    --success-foreground: 16 16 20;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --warning: 255 179 102;
+    --warning-container: 192 78 0;
+    --warning-foreground: 16 16 20;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --error: 242 184 181;
+    --error-container: 140 29 24;
+    --error-foreground: 16 16 20;
+
+    --muted: 202 196 208;
+    --muted-foreground: 147 143 153;
+
+    --accent: 202 196 208;
+    --accent-foreground: 16 16 20;
+
+    --destructive: 242 184 181;
+    --destructive-foreground: 16 16 20;
+
+    --border: 73 69 79;
+    --input: 73 69 79;
+    --ring: 138 180 248;
+
+    --outline: 147 143 153;
+    --outline-variant: 73 69 79;
+
+    /* Google Wallet specific colors - dark theme */
+    --wallet-blue: 138 180 248;
+    --wallet-green: 129 201 149;
+    --wallet-yellow: 255 193 7;
+    --wallet-red: 242 184 181;
+
+    --sidebar-background: 16 16 20;
+    --sidebar-foreground: 230 225 229;
+    --sidebar-primary: 138 180 248;
+    --sidebar-primary-foreground: 16 16 20;
+    --sidebar-accent: 37 35 42;
+    --sidebar-accent-foreground: 230 225 229;
+    --sidebar-border: 73 69 79;
+    --sidebar-ring: 138 180 248;
   }
 }
 
@@ -100,6 +223,171 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-google-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography styles */
+  .font-google-sans {
+    font-family: var(--font-google-sans);
+  }
+
+  .font-roboto {
+    font-family: var(--font-roboto);
+  }
+
+  /* Material 3 elevation utilities */
+  .elevation-1 {
+    box-shadow: var(--elevation-1);
+  }
+
+  .elevation-2 {
+    box-shadow: var(--elevation-2);
+  }
+
+  .elevation-3 {
+    box-shadow: var(--elevation-3);
+  }
+
+  .elevation-4 {
+    box-shadow: var(--elevation-4);
+  }
+
+  .elevation-5 {
+    box-shadow: var(--elevation-5);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus styles for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Material 3 surface containers */
+  .surface {
+    background-color: hsl(var(--surface));
+    color: hsl(var(--foreground));
+  }
+
+  .surface-variant {
+    background-color: hsl(var(--surface-variant));
+    color: hsl(var(--foreground));
+  }
+
+  .surface-container {
+    background-color: hsl(var(--surface-container));
+    color: hsl(var(--foreground));
+  }
+
+  .surface-container-high {
+    background-color: hsl(var(--surface-container-high));
+    color: hsl(var(--foreground));
+  }
+
+  .surface-container-highest {
+    background-color: hsl(var(--surface-container-highest));
+    color: hsl(var(--foreground));
+  }
+
+  /* Google Wallet card styling */
+  .wallet-card {
+    @apply rounded-2xl elevation-2 surface-container transition-all duration-300;
+    @apply hover:elevation-3 active:elevation-1;
+  }
+
+  .wallet-card-interactive {
+    @apply wallet-card cursor-pointer;
+    @apply hover:scale-[1.02] active:scale-[0.98];
+    transition: all var(--duration-medium-2) var(--easing-standard);
+  }
+
+  /* Button variants inspired by Material 3 */
+  .btn-filled {
+    @apply bg-primary text-primary-foreground rounded-full px-6 py-3 font-medium;
+    @apply hover:shadow-lg active:scale-95 transition-all duration-200;
+  }
+
+  .btn-outlined {
+    @apply border border-outline text-primary bg-transparent rounded-full px-6 py-3 font-medium;
+    @apply hover:bg-primary/10 active:scale-95 transition-all duration-200;
+  }
+
+  .btn-text {
+    @apply text-primary bg-transparent rounded-full px-4 py-2 font-medium;
+    @apply hover:bg-primary/10 active:scale-95 transition-all duration-200;
+  }
+
+  /* Floating Action Button */
+  .fab {
+    @apply bg-primary text-primary-foreground rounded-full w-14 h-14 flex items-center justify-center;
+    @apply elevation-3 hover:elevation-4 active:elevation-2;
+    @apply hover:scale-105 active:scale-95 transition-all duration-200;
+  }
+
+  /* Material 3 typography scale */
+  .display-large {
+    @apply text-6xl font-normal tracking-tight;
+  }
+
+  .display-medium {
+    @apply text-5xl font-normal tracking-tight;
+  }
+
+  .display-small {
+    @apply text-4xl font-normal tracking-tight;
+  }
+
+  .headline-large {
+    @apply text-3xl font-normal tracking-tight;
+  }
+
+  .headline-medium {
+    @apply text-2xl font-normal tracking-tight;
+  }
+
+  .headline-small {
+    @apply text-xl font-normal tracking-tight;
+  }
+
+  .title-large {
+    @apply text-xl font-medium tracking-tight;
+  }
+
+  .title-medium {
+    @apply text-lg font-medium tracking-wide;
+  }
+
+  .title-small {
+    @apply text-base font-medium tracking-wide;
+  }
+
+  .label-large {
+    @apply text-sm font-medium tracking-wide;
+  }
+
+  .label-medium {
+    @apply text-xs font-medium tracking-wide;
+  }
+
+  .label-small {
+    @apply text-xs font-medium tracking-wider;
+  }
+
+  .body-large {
+    @apply text-base font-normal tracking-wide;
+  }
+
+  .body-medium {
+    @apply text-sm font-normal tracking-wide;
+  }
+
+  .body-small {
+    @apply text-xs font-normal tracking-wider;
   }
 }

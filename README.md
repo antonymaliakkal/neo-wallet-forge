@@ -1,73 +1,268 @@
-# Welcome to your Lovable project
+# NeoSpan - Digital Pass Manager
 
-## Project info
+A complete Progressive Web App (PWA) for digital pass management and verification using Google technologies and AI.
 
-**URL**: https://lovable.dev/projects/e0d711b4-4959-435b-b7a6-934db422479a
+## 🚀 Features
 
-## How can I edit this code?
+- **Material 3 Design**: Google Wallet-inspired UI with Material You design system
+- **QR Code Scanning**: Upload or scan QR codes to create digital passes
+- **AI Processing**: Gemini AI integration for intelligent data extraction
+- **Google Wallet Integration**: Create and manage passes in Google Wallet
+- **Progressive Web App**: Full PWA with offline support and installability
+- **Firebase Backend**: Cloud Functions, Firestore, and Authentication
+- **Responsive Design**: Mobile-first approach with smooth animations
 
-There are several ways of editing your application.
+## 🏗️ Tech Stack
 
-**Use Lovable**
+### Frontend
+- **React** with TypeScript
+- **Vite** for build tooling
+- **Tailwind CSS** with custom Material 3 design tokens
+- **Framer Motion** for animations
+- **Radix UI** components
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e0d711b4-4959-435b-b7a6-934db422479a) and start prompting.
+### Backend & Services
+- **Firebase Cloud Functions** (Node.js)
+- **Firestore** for database
+- **Firebase Auth** with Google Sign-In
+- **Google Vertex AI** (Gemini API)
+- **Google Wallet API**
+- **Firebase Hosting**
 
-Changes made via Lovable will be committed automatically to this repo.
+### PWA Features
+- Service Worker for offline caching
+- Web App Manifest for installability
+- Background sync capabilities
+- Push notifications ready
 
-**Use your preferred IDE**
+## 🎨 Design System
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The app uses a comprehensive Material 3-inspired design system:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Typography**: Google Sans and Roboto font families
+- **Colors**: Dynamic color tokens with light/dark theme support
+- **Spacing**: Material 3 spacing scale (4px to 64px)
+- **Elevation**: 5-level elevation system with custom shadows
+- **Animations**: Standard Material Motion easing curves
+- **Components**: Custom variants matching Google Wallet aesthetics
 
-Follow these steps:
+## 🛠️ Development Setup
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Prerequisites
+- Node.js 18+ and npm
+- Firebase CLI
+- Google Cloud Project with enabled APIs
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Local Development
 
-# Step 3: Install the necessary dependencies.
-npm i
+1. **Clone the repository**:
+```bash
+git clone <repository-url>
+cd neospan
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+2. **Install dependencies**:
+```bash
+npm install
+```
+
+3. **Configure Firebase**:
+```bash
+# Install Firebase CLI if you haven't already
+npm install -g firebase-tools
+
+# Login to Firebase
+firebase login
+
+# Initialize Firebase (if not already done)
+firebase init
+```
+
+4. **Set up environment variables**:
+Create a `.env` file with your configuration:
+```env
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_GEMINI_API_KEY=your_gemini_api_key
+VITE_GOOGLE_WALLET_ISSUER_ID=your_issuer_id
+```
+
+5. **Start development server**:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Available Scripts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
 
-**Use GitHub Codespaces**
+## 🚀 Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Firebase Hosting
 
-## What technologies are used for this project?
+1. **Build the project**:
+```bash
+npm run build
+```
 
-This project is built with:
+2. **Deploy to Firebase**:
+```bash
+firebase deploy --only hosting
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### PWA Deployment
 
-## How can I deploy this project?
+The app is automatically configured as a PWA:
 
-Simply open [Lovable](https://lovable.dev/projects/e0d711b4-4959-435b-b7a6-934db422479a) and click on Share -> Publish.
+- **Manifest**: `/public/manifest.json` with app metadata
+- **Service Worker**: `/public/sw.js` for caching and offline support
+- **Icons**: App icons in multiple sizes
+- **Installability**: Automatic install prompts
 
-## Can I connect a custom domain to my Lovable project?
+## 📱 PWA Features
 
-Yes, you can!
+### Offline Support
+- Core app functionality works offline
+- Pass data cached locally
+- Background sync for pending operations
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Installation
+- Install prompt appears after 3 seconds (dismissible)
+- Home screen shortcuts for quick actions
+- Standalone app experience
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Performance
+- Service Worker caching strategy
+- Lazy loading of components
+- Optimized bundle splitting
+
+## 🔧 Firebase Setup
+
+### Required Firebase Services
+
+1. **Authentication**
+   - Enable Google Sign-In provider
+   - Configure authorized domains
+
+2. **Firestore Database**
+   - Create collections: `users`, `passes`, `templates`
+   - Set up security rules
+
+3. **Cloud Functions**
+   - Deploy functions for pass processing
+   - Configure Gemini AI integration
+
+4. **Storage** (optional)
+   - For pass images and attachments
+
+### Security Rules
+
+Example Firestore rules:
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      match /passes/{passId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}
+```
+
+## 🤖 AI Integration
+
+### Gemini API Setup
+
+1. Enable Vertex AI API in Google Cloud Console
+2. Create service account with Vertex AI permissions
+3. Configure API key in environment variables
+
+### Processing Flow
+
+1. User scans QR code or uploads document
+2. Data sent to Gemini API for processing
+3. AI extracts structured information
+4. Pass created with extracted data
+5. Pass added to Google Wallet
+
+## 💳 Google Wallet Integration
+
+### Setup Requirements
+
+1. **Google Pay & Wallet Console**
+   - Create issuer account
+   - Get issuer ID and API keys
+
+2. **Pass Classes**
+   - Define templates for different pass types
+   - Configure branding and styling
+
+3. **Service Account**
+   - Create service account for API access
+   - Download credentials JSON
+
+### Pass Types Supported
+
+- **Event Tickets**: Conferences, concerts, etc.
+- **Boarding Passes**: Flights, trains, buses
+- **Loyalty Cards**: Rewards programs
+- **Generic Passes**: Custom use cases
+
+## 📊 Analytics & Monitoring
+
+- Firebase Analytics for user behavior
+- Performance monitoring with Lighthouse
+- Error tracking with Firebase Crashlytics
+- Custom events for pass creation and usage
+
+## 🔒 Security & Privacy
+
+- Firebase Auth for user authentication
+- Secure API key management
+- Data encryption at rest and in transit
+- GDPR compliance ready
+- Privacy-first data handling
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+npm test
+
+# Run specific test suites
+npm run test:unit
+npm run test:e2e
+npm run test:pwa
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📞 Support
+
+For support and questions:
+- Create an issue on GitHub
+- Check the documentation
+- Contact the development team
+
+---
+
+**Note**: This is a complete proof of concept demonstrating Google technology integration. For production use, ensure all API keys are properly secured and all Google services are correctly configured.
